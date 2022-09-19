@@ -101,21 +101,29 @@ namespace Calculator
         {
             operation_pressed = false;
             op.Text = "";
+            Double resultnum = Double.Parse(result.Text);//統一轉換
             // TODO Double.Parse 部分在四則運算內都有，統一轉換就好
             switch (operation)
             {
                 case "+":
-                    result.Text = (value + Double.Parse(result.Text)).ToString();
+                    result.Text = (value + resultnum).ToString();
                     break;
                 case "-":
-                    result.Text = (value - Double.Parse(result.Text)).ToString();
+                    result.Text = (value - resultnum).ToString();
                     break;
                 case "*":
-                    result.Text = (value * Double.Parse(result.Text)).ToString();
+                    result.Text = (value * resultnum).ToString();
                     break;
                 case "/":
                     // TODO 除法沒有防呆，分母為零時，結果
-                    result.Text = (value / Double.Parse(result.Text)).ToString();
+                    if (resultnum == 0)
+                    {
+                        result.Text = "Error";
+                    }
+                    else
+                    {
+                        result.Text = (value / resultnum).ToString();
+                    }
                     break;
                 default:
                     break;
