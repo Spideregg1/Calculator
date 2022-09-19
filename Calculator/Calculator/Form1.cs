@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+// TODO VS 排版快捷鍵
 namespace Calculator
 {
     public partial class Form1 : Form
     {
+        // TODO 請說明 property 和 feilds 差異
+        // TODO 請說明下面三個變數的存取修飾子範圍，EX：public、private ....
         Double value = 0;
         String operation = "";
         bool operation_pressed = false;
@@ -22,6 +24,8 @@ namespace Calculator
 
         private void button_click(object sender, EventArgs e)
         {
+            // TODO 數字按鈕用國字一 ~ 九來呈現，詳見 UI 畫面，這個我已經改好
+            //  這個沒有實務商業邏輯意義，單純程式練習
             if (result.Text == "0" || (operation_pressed))
             {
                 result.Clear();
@@ -62,6 +66,7 @@ namespace Calculator
         {
             operation_pressed = false;
             op.Text = "";
+            // TODO Double.Parse 部分在四則運算內都有，統一轉換就好
             switch (operation)
             {
                 case "+":
@@ -74,6 +79,7 @@ namespace Calculator
                     result.Text = (value * Double.Parse(result.Text)).ToString();
                     break;
                 case "/":
+                    // TODO 除法沒有防呆，分母為零時，結果
                     result.Text = (value / Double.Parse(result.Text)).ToString();
                     break;
                 default:
