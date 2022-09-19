@@ -15,11 +15,43 @@ namespace Calculator
         // TODO 請說明 property 和 feilds 差異
         // TODO 請說明下面三個變數的存取修飾子範圍，EX：public、private ....
         Double value = 0;
-        String operation = "";
+        String operation = ""; //設定運算子
         bool operation_pressed = false;
+
+       
         public Form1()
         {
             InitializeComponent();
+        }
+        public static String SwitchLetter(String num)//將國字轉成數字的function
+        {
+            switch (num)
+            {
+                case "零":
+                    return "0";
+                case "一":
+                    return "1";
+                case "二":
+                    return "2";
+                case "三":
+                    return "3";
+                case "四":
+                    return "4";
+                case "五":
+                    return "5";
+                case "六":
+                    return "6";
+                case "七":
+                    return "7";
+                case "八":
+                    return "8";
+                case "九":
+                    return "9";
+                default:
+                    return "";
+            }
+            
+
         }
 
         private void button_click(object sender, EventArgs e)
@@ -33,6 +65,9 @@ namespace Calculator
 
             Button b = (Button)sender;
 
+            String Switchnum= SwitchLetter(b.Text);
+
+
             if (b.Text == ".")
             {
                 if (!result.Text.Contains("."))
@@ -42,8 +77,8 @@ namespace Calculator
 
             }
             else
-            {
-                result.Text = result.Text + b.Text;
+            { 
+                    result.Text = result.Text + Switchnum;
             }
 
         }
@@ -95,4 +130,7 @@ namespace Calculator
         }
     
 }
+
+
+
 }
